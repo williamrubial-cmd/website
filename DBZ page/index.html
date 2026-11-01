@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="O portal definitivo para Guerreiros Z e fãs de anime. Notícias oficiais de Dragon Ball, vídeos atualizados da Toei e Bandai, e galeria de papéis de parede 4K gratuitos.">
+    <meta property="og:title" content="Dragon Ball Universe - Portal Definitivo">
+    <meta property="og:description" content="Notícias, vídeos e papéis de parede 4K de Dragon Ball e universo dos animes.">
+    <meta property="og:type" content="website">
+    <title>Dragon Ball Universe</title>
+    <!-- Favicon Temático: Esfera de 4 Estrelas em SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%23F26F22' stroke='%23CC4400' stroke-width='2'/><polygon points='10,8 11,10.5 13.5,10.5 11.5,12 12.5,14.5 10,13 7.5,14.5 8.5,12 6.5,10.5 9,10.5' fill='%23FFD700'/><polygon points='22,8 23,10.5 25.5,10.5 23.5,12 24.5,14.5 22,13 19.5,14.5 20.5,12 18.5,10.5 21,10.5' fill='%23FFD700'/><polygon points='10,18 11,20.5 13.5,20.5 11.5,22 12.5,24.5 10,23 7.5,24.5 8.5,22 6.5,20.5 9,20.5' fill='%23FFD700'/><polygon points='22,18 23,20.5 25.5,20.5 23.5,22 24.5,24.5 22,23 19.5,24.5 20.5,22 18.5,20.5 21,20.5' fill='%23FFD700'/></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-dragon"></i> DB <span>Universe</span>
+        </div>
+        <button class="mobile-menu-toggle" id="menuToggle" aria-label="Alternar menu de navegação">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav id="navMenu">
+            <ul>
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#db-news" data-i18n="nav_db">Universo DB</a></li>
+                <li><a href="#anime-news" data-i18n="nav_anime">Mundo Anime</a></li>
+                <li><a href="#media" data-i18n="nav_media">Multimídia</a></li>
+                <li><a href="#gallery" data-i18n="nav_gallery">Galeria 4K</a></li>
+                <li><a href="https://leitor.kamisama.com.br/manga/dragon-ball-super/" target="_blank" rel="noopener noreferrer" data-i18n="nav_manga">Mangás DB</a></li>
+                <li><a href="anime-fanmade.html" target="_blank" rel="noopener noreferrer" class="nav-fanmade"><i class="fa-solid fa-fire-flame-curved"></i> <span data-i18n="nav_fanmade">Anime FanMade</span> <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i></a></li>
+                <li class="lang-item">
+                    <div class="lang-selector" id="langSelector">
+                        <button type="button" class="lang-btn" id="langBtn" aria-label="Selecionar idioma" aria-expanded="false">
+                            <i class="fa-solid fa-globe"></i>
+                            <span id="currentLangLabel">🇧🇷 PT-BR</span>
+                            <i class="fa-solid fa-chevron-down lang-arrow"></i>
+                        </button>
+                        <ul class="lang-dropdown" id="langDropdown">
+                            <li><button type="button" data-lang="pt-BR" class="lang-option active"><span>🇧🇷</span> Português (BR)</button></li>
+                            <li><button type="button" data-lang="en" class="lang-option"><span>🇺🇸</span> English</button></li>
+                            <li><button type="button" data-lang="es" class="lang-option"><span>🇪🇸</span> Español</button></li>
+                            <li><button type="button" data-lang="ja" class="lang-option"><span>🇯🇵</span> 日本語 (Japonês)</button></li>
+                            <li><button type="button" data-lang="ko" class="lang-option"><span>🇰🇷</span> 한국어 (Coreano)</button></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-i18n="hero_title">Eleve seu <span>Ki</span> ao Máximo!</h1>
+            <p data-i18n="hero_subtitle">O portal definitivo para todos os Guerreiros Z. Notícias, vídeos, imagens em 4K e muito mais sobre a maior obra de Akira Toriyama.</p>
+            <a href="#db-news" class="btn-primary"><span data-i18n="hero_btn">Explorar</span> <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <section id="db-news" class="section">
+        <h2 class="section-title" data-i18n="db_news_title">Notícias <span>Dragon Ball</span></h2>
+        <div class="cards-container">
+            <article class="card">
+                <img src="https://4kwallpapers.com/images/wallpapers/dragon-ball-super-3840x2160-25204.jpg" alt="Kami Sama Explorer Notícias" loading="lazy">
+                <div class="card-content">
+                    <h3 data-i18n="card_db1_title">Kami Sama Explorer</h3>
+                    <p data-i18n="card_db1_desc">Fique por dentro de todos os anúncios mais recentes, resumos do mangá e análises de Dragon Ball na maior comunidade brasileira e em português dedicada à franquia.</p>
+                    <a href="https://kamisama.com.br/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_db1_link">Acessar as últimas matérias</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://4kwallpapers.com/images/wallpapers/super-saiyan-goku-3840x2160-27103.jpg" alt="Dragon Ball Official Site Notícias" loading="lazy">
+                <div class="card-content">
+                    <h3 data-i18n="card_db2_title">Dragon Ball Official Site</h3>
+                    <p data-i18n="card_db2_desc">O portal global oficial da franquia! Acompanhe as transmissões do Weekly Dragon Ball News e os comunicados diretos de jogos, animes e eventos.</p>
+                    <a href="https://en.dragon-ball-official.com/news/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_db2_link">Portal de Notícias Oficial</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://4kwallpapers.com/images/wallpapers/dragon-ball-daima-3840x2160-19049.jpeg" alt="Toei Animation Press Anúncios" loading="lazy">
+                <div class="card-content">
+                    <h3 data-i18n="card_db3_title">Toei Animation (Press)</h3>
+                    <p data-i18n="card_db3_desc">Acompanhe os comunicados de imprensa e novidades de animação direto da Toei Animation, o lendário estúdio responsável por produzir os animes de Dragon Ball.</p>
+                    <a href="https://corp.toei-anim.co.jp/en/press.html" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_db3_link">Ver comunicados do estúdio</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="anime-news" class="section bg-darker">
+        <h2 class="section-title" data-i18n="anime_news_title">Radar <span>Otaku</span> (Geral)</h2>
+        <div class="cards-container">
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?auto=format&fit=crop&w=600&q=80" alt="Portal Pokémon Brasil" loading="lazy">
+                <div class="card-content">
+                    <h3 data-i18n="card_an1_title">Portal Oficial Pokémon (BR)</h3>
+                    <p data-i18n="card_an1_desc">Descubra as mais recentes novidades sobre Pokémon Horizontes, cartas TCG, eventos no Pokémon GO e atualizações completas diretamente no portal oficial do Brasil.</p>
+                    <a href="https://www.pokemon.com/br/noticias-pokemon/" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_an1_link">Notícias de Pokémon</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80" alt="Crunchyroll Notícias Animes" loading="lazy">
+                <div class="card-content">
+                    <h3 data-i18n="card_an2_title">Crunchyroll Notícias (BR)</h3>
+                    <p data-i18n="card_an2_desc">Fique por dentro das datas de lançamento das próximas temporadas de animes, anúncios de dublagens brasileiras e as principais novidades da cultura pop e mangás.</p>
+                    <a href="https://www.crunchyroll.com/pt-br/news" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_an2_link">Ver últimas do Crunchyroll</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=600&q=80" alt="NerdBunker Geek News" loading="lazy">
+                <div class="card-content">
+                    <h3 data-i18n="card_an3_title">NerdBunker: Animes & Mangás</h3>
+                    <p data-i18n="card_an3_desc">A melhor cobertura em português e com bom humor sobre o universo geek, trazendo matérias super atualizadas de filmes asiáticos, animes, mangás e tokusatsus.</p>
+                    <a href="https://jovemnerd.com.br/bunker/categoria/animes-e-mangas" target="_blank" rel="noopener noreferrer" class="read-more" data-i18n="card_an3_link">Acessar matérias no Bunker</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="media" class="section">
+        <h2 class="section-title" data-i18n="media_title">Multimídia <span>Vídeos</span></h2>
+        <div class="video-grid">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUQYYekTKCb1y12sas08T6gQ" title="Toei Animation Official" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUajMZ7edULHfw2vqet6N3oQ" title="Bandai Namco Brasil" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUFHccS_Xv5wRA8rXg4OyKDg" title="Universo Z" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section bg-darker">
+        <h2 class="section-title" data-i18n="gallery_title">Galeria <span>4K</span> (Wallpapers)</h2>
+        <p data-i18n="gallery_desc" style="text-align: center; margin-bottom: 40px; color: #ccc; font-size: 1.1rem;">Clique na imagem para ampliar no visualizador e em "Baixar 4K" para obter a imagem em máxima resolução.</p>
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Galeria gerada dinamicamente via script.js com papéis de parede aleatórios a cada visita -->
+        </div>
+    </section>
+
+    <!-- Modal / Lightbox de Visualização de Imagens -->
+    <div id="imageModal" class="modal" role="dialog" aria-hidden="true" aria-label="Visualização em tela cheia">
+        <button class="modal-close" id="modalClose" aria-label="Fechar visualização">&times;</button>
+        <img class="modal-content" id="modalImg" alt="Wallpaper Ampliado">
+        <div class="modal-caption" id="modalCaption">
+            <a id="modalDownload" href="#" target="_blank" class="btn-primary"><i class="fa-solid fa-download"></i> <span data-i18n="modal_download">Baixar em 4K</span></a>
+        </div>
+    </div>
+
+    <!-- Botão Flutuante Nuvem Voadora (Voltar ao Topo) -->
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo da página">
+        <i class="fa-solid fa-cloud"></i>
+        <span data-i18n="back_top">Topo</span>
+    </button>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <i class="fa-solid fa-dragon"></i> DB <span>Universe</span>
+            </div>
+            <p data-i18n="footer_text">&copy; 2026 DB Universe. Desenvolvido para fãs. Todos os direitos de Dragon Ball reservados a Akira Toriyama, Shueisha e Toei Animation.</p>
+            <div class="socials">
+                <a href="https://twitter.com/DB_official_en" target="_blank" rel="noopener noreferrer" aria-label="Twitter Oficial Dragon Ball"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/toei_animation/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Toei Animation"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@ToeiAnimationOfficial" target="_blank" rel="noopener noreferrer" aria-label="YouTube Toei Animation"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chat-widget.js"></script>
+</body>
+</html>
