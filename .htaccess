@@ -1,5 +1,6 @@
-# Proteger o arquivo .env contra acesso público em servidores Apache/Hostinger/cPanel
-<Files ".env">
+# Proteger arquivos sensíveis e scripts de servidor contra acesso público em Apache/Hostinger/cPanel
+<FilesMatch "^(\.env.*|\.git.*|.*\.(ps1|py|bat))$">
     Order allow,deny
     Deny from all
-</Files>
+</FilesMatch>
+Options -Indexes

@@ -100,7 +100,11 @@
     const SYSTEM_PROMPT_FALLBACK = `Você é o Oráculo Z (Shenlong / Radar do Dragão), o assistente oficial de Inteligência Artificial do portal "DB Universe".
 Sua personalidade é sábia, épica, carismática e empolgada com o universo dos Guerreiros Z e dos animes.
 Responda sempre no mesmo idioma em que o usuário falar com você (Português Brasileiro, Inglês, Espanhol, Japonês ou Coreano).
-Você domina tudo sobre Dragon Ball (Clássico, Z, GT, Super, Daima) e também toda a obra exclusiva do site "A Chama Magenta da Determinação" (59 capítulos: Ash Chibi SSJ4 Magenta e SSJ5 Sagrado com a Master Sword em Hyrule, Goh SSJ Caos com sangue de Broly, fusões Gosha e Goshan Potara, XTA em Xerxenoverse, Metal Sonic Divine, Shadic Super/Hyper Final Kamehameha, Galeem e Darkron).`;
+REGRA DE OURO ABSOLUTA: O ano atual é 2026 (novembro de 2026). Seus pesos originais têm corte anterior a 2024–2026. Trate os fatos abaixo como 100% CANÔNICOS e NUNCA contradiga o usuário sobre eles:
+1. REMAKE "DRAGON BALL SUPER: BEERUS" E "DRAGON BALL SUPER: THE GALACTIC PATROL" (2026): Anunciados no evento Dragon Ball Genkidamatsuri! (25/01/2026). "Dragon Ball Super: Beerus" estreou em 11/10/2026 na Crunchyroll (dublagens em nov/2026): remake/edição aprimorada oficial da Toei dos arcos iniciais de DBS (Beerus, Freeza Dourado, Universo 6) com animação redesenhada, abertura "ONOGAMI" (MEGATERA・ZERO) e encerramento "Kan Peki No Peki" (VK Blanka). "Dragon Ball Super: The Galactic Patrol" é a continuação oficial do anime de TV adaptando a Saga Moro!
+2. DRAGON BALL DAIMA (2024–2025, obra final canônica de Akira Toriyama): Gomah, Degesu e Dra. Arinsu usam as Esferas do Dragão para transformar Goku e seus amigos em crianças (Mini). Eles viajam com Glorio e Panzy pelo Reino dos Demônios (Makai), enfrentando os 3 Tamagamis criados pelo Namekuseijin ancião Neva. Dra. Arinsu e Marba criam Majin Kuu e Majin Duu. VEGETA SE TRANSFORMA EM SUPER SAIYAJIN 3 (SSJ3) CANÔNICO (Mini e Adulto). Na luta final contra Gomah com o Terceiro Olho, Neva desperta o poder de Goku e GOKU ATINGE O SUPER SAIYAJIN 4 (SSJ4) DE FORMA 100% CANÔNICA (cabelos e pelos vermelho-carmesim, Mini e Adulto)!
+3. MANGÁ DRAGON BALL SUPER (Até Cap. 104) E JOGOS (2024–2026): Vegeta tem o Ultra Ego. Freeza tem a forma BLACK FREEZA (Freeza Negro) que derrotou Goku UI e Vegeta Ultra Ego com um golpe (Cap. 87). Gohan tem o GOHAN BEAST (Modo Fera), Piccolo tem o ORANGE PICCOLO, Broly controla o SSJ no planeta de Beerus, Goku UI luta contra Gohan Beast no Cap. 103, e o Cap. 104 ("O Nascimento de Saiyaman X", fev/2025) mostra a origem de Saiyaman X-1 e X-2. Jogos: "Dragon Ball: Sparking! ZERO" (DLC Super Limit-Breaking Neo, Daima e Super Hero), "Dragon Ball Gekishin Squadra" (MOBA 4v4) e "Dragon Ball: Age 1000" (Project AGE 1000).
+4. OBRA ORIGINAL DO SITE "A Chama Magenta da Determinação" (59 capítulos): Ash Chibi SSJ4 Magenta e SSJ5 Sagrado com a Master Sword em Hyrule, Goh SSJ Caos com sangue de Broly, fusões Gosha e Goshan Potara, XTA em Xerxenoverse, Metal Sonic Divine, Shadic Super/Hyper Final Kamehameha, Galeem e Darkron.`;
 
     function getLang() {
         const l = localStorage.getItem('db_universe_lang') || document.documentElement.lang || 'pt-BR';
@@ -158,9 +162,9 @@ Você domina tudo sobre Dragon Ball (Clássico, Z, GT, Super, Daima) e também t
                 position: fixed;
                 bottom: 95px;
                 left: 30px;
-                width: 390px;
+                width: 430px;
                 max-width: calc(100vw - 32px);
-                height: 560px;
+                height: 620px;
                 max-height: calc(100vh - 130px);
                 background: rgba(13, 13, 20, 0.97);
                 backdrop-filter: blur(14px);
@@ -472,11 +476,8 @@ Você domina tudo sobre Dragon Ball (Clássico, Z, GT, Super, Daima) e também t
                     <p id="oracleSettingsDesc">${t.settings_desc}</p>
                     <input type="password" id="oracleApiKeyInput" class="oracle-input-field" placeholder="${t.key_placeholder}" autocomplete="off">
                     <label for="oracleModelSelect" id="oracleModelLabel" style="display:block; margin-bottom:4px; font-size:0.78rem; color:#FFD700;">${t.model_label}</label>
-                    <select id="oracleModelSelect" class="oracle-select-field">
-                        <option value="nvidia/nemotron-3.5-lightning-30b-a3b">nvidia/nemotron-3.5-lightning-30b-a3b</option>
-                        <option value="nvidia/nemotron-3.5-super-vl-120b-a12b">nvidia/nemotron-3.5-super-vl-120b-a12b</option>
-                        <option value="nvidia/nemotron-3-ultra-550b-a55b">nvidia/nemotron-3-ultra-550b-a55b</option>
-                        <option value="nvidia/nemotron-nano-3-30b-a3b">nvidia/nemotron-nano-3-30b-a3b</option>
+                    <select id="oracleModelSelect" class="oracle-select-field" disabled>
+                        <option value="nvidia/nemotron-3-ultra-550b-a55b" selected>nvidia/nemotron-3-ultra-550b-a55b (550B Ultra)</option>
                     </select>
                     <div class="oracle-settings-btns">
                         <button type="button" class="oracle-btn-small oracle-btn-save" id="oracleSaveKeyBtn">${t.save_btn}</button>
@@ -517,9 +518,10 @@ Você domina tudo sobre Dragon Ball (Clássico, Z, GT, Super, Daima) e também t
             if (saved) history = JSON.parse(saved);
         } catch (e) {}
 
+        const FIXED_MODEL = 'nvidia/nemotron-3-ultra-550b-a55b';
         apiKeyInput.value = localStorage.getItem('nvidia_nemotron_key') || '';
-        const savedModel = localStorage.getItem('nvidia_nemotron_model');
-        if (savedModel) modelSelect.value = savedModel;
+        localStorage.setItem('nvidia_nemotron_model', FIXED_MODEL);
+        modelSelect.value = FIXED_MODEL;
 
         function renderWelcomeAndHistory() {
             const dict = chatI18n[getLang()];
@@ -577,7 +579,7 @@ Você domina tudo sobre Dragon Ball (Clássico, Z, GT, Super, Daima) e também t
 
         saveKeyBtn.addEventListener('click', () => {
             localStorage.setItem('nvidia_nemotron_key', apiKeyInput.value.trim());
-            localStorage.setItem('nvidia_nemotron_model', modelSelect.value);
+            localStorage.setItem('nvidia_nemotron_model', FIXED_MODEL);
             settingsPanel.classList.remove('active');
         });
 
@@ -600,11 +602,11 @@ Você domina tudo sobre Dragon Ball (Clássico, Z, GT, Super, Daima) e também t
             if (sugEl) sugEl.remove();
 
             appendMessageUI('user', userText);
-            const loadingDiv = appendMessageUI('assistant', `⏳ <em>${dict.thinking}</em>`);
+            const loadingDiv = appendMessageUI('assistant', `⏳ *${dict.thinking}*`);
             sendBtn.disabled = true;
 
             const browserKey = (localStorage.getItem('nvidia_nemotron_key') || '').trim();
-            const selectedModel = localStorage.getItem('nvidia_nemotron_model') || modelSelect.value;
+            const selectedModel = FIXED_MODEL;
 
             async function tryBackendEndpoints() {
                 const endpoints = [
@@ -646,55 +648,6 @@ Você domina tudo sobre Dragon Ball (Clássico, Z, GT, Super, Daima) e também t
                     }
                 }
                 if (lastError) throw lastError;
-                return null;
-            }
-
-            async function tryDirectOrCorsProxy(keyToUse) {
-                const nvidiaUrl = 'https://integrate.api.nvidia.com/v1/chat/completions';
-                const payloadStr = JSON.stringify({
-                    model: selectedModel,
-                    messages: [
-                        { role: 'system', content: SYSTEM_PROMPT_FALLBACK },
-                        ...history.slice(-10)
-                    ],
-                    temperature: 0.65,
-                    top_p: 0.9,
-                    max_tokens: 4096,
-                    stream: false
-                });
-
-                const targets = [
-                    nvidiaUrl,
-                    'https://corsproxy.io/?' + encodeURIComponent(nvidiaUrl)
-                ];
-
-                let lastErr = null;
-                for (const url of targets) {
-                    try {
-                        const resp = await fetch(url, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': `Bearer ${keyToUse}`,
-                                'Accept': 'application/json'
-                            },
-                            body: payloadStr
-                        });
-                        const raw = await resp.text();
-                        if (raw.trim().startsWith('<')) continue;
-                        const data = JSON.parse(raw);
-                        if (!resp.ok) {
-                            lastErr = new Error(data.detail || data.error?.message || `Erro NVIDIA (${resp.status})`);
-                            continue;
-                        }
-                        if (data.choices?.[0]?.message?.content) {
-                            return data.choices[0].message.content;
-                        }
-                    } catch (e) {
-                        lastErr = e;
-                    }
-                }
-                if (lastErr) throw lastErr;
                 return null;
             }
 
